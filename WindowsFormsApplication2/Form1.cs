@@ -157,8 +157,11 @@ namespace WindowsFormsApplication2
 
             cmd.CommandText = "SELECT CAST(bbd AS INT) FROM coloresrgb WHERE num = 3";
             bValuetc = (int)cmd.ExecuteScalar();
-
+            Random random = new Random();
             Color c = new Color();
+            Color colorAleatorio1 = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            Color colorAleatorio2 = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            Color colorAleatorio3 = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
             //primercolor
             for (int i = 0; i < bmp.Width - lim; i = i + lim)
                 for (int j = 0; j < bmp.Height - lim; j = j + lim)
@@ -182,7 +185,7 @@ namespace WindowsFormsApplication2
                         for (int o = i; o < i + lim; o++)
                             for (int p = j; p < j + lim; p++)
                             {
-                                bmp2.SetPixel(o, p, Color.FromArgb(rValue, gValue, bValue));
+                                bmp2.SetPixel(o, p, colorAleatorio1);
                             }
 
                     }else if (((rValuet - 10 < rt) && (rt < rValuet + 10)) //o aqui
@@ -192,7 +195,7 @@ namespace WindowsFormsApplication2
                         for (int o = i; o < i + lim; o++)
                             for (int p = j; p < j + lim; p++)
                             {
-                                bmp2.SetPixel(o, p, Color.FromArgb(rValuet, gValuet, bValuet));
+                                bmp2.SetPixel(o, p, colorAleatorio2);
                             }
 
                     }else if (((rValuetc - 10 < rt) && (rt < rValuetc + 10)) //o aqui
@@ -202,7 +205,7 @@ namespace WindowsFormsApplication2
                         for (int o = i; o < i + lim; o++)
                             for (int p = j; p < j + lim; p++)
                             {
-                                bmp2.SetPixel(o, p, Color.FromArgb(rValuetc, gValuetc, bValuetc));
+                                bmp2.SetPixel(o, p, colorAleatorio3);
                             }
 
                     }else
